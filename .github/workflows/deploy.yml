@@ -2,16 +2,30 @@ name: Deploy to GitHub Pages
 
 on:
     push:
-        branches: [ main ]
+        branches: [ main, master, develop ]
     pull_request:
-        branches: [ main ]
+        types: [closed]
+        branches: [ main, master, develop ]
     #  pull_request:
 #    types: [closed]
 #    branches: [ main ]
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Info
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Base Ref: ${{ github.base_ref }}"
+          echo "Head Ref: ${{ github.head_ref }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Repository: ${{ github.repository }}"
+
   deploy:
-    if: github.event.pull_request.merged == true
+    needs: debug
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     permissions:
       contents: write
