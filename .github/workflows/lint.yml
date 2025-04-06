@@ -8,6 +8,11 @@ on:
   pull_request:
     branches: [ main ]
 
+# Add this permissions block
+permissions:
+  contents: read
+  statuses: write  # This is required for creating commit statuses
+
 jobs:
   run-linters:
     name: Run linters
