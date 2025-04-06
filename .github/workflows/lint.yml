@@ -40,23 +40,3 @@ jobs:
         run: |
           npm run lint
           npm run format -- --check
-
-      # Status check reporting
-      - name: Report Status
-        if: always()
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { conclusion } = context.payload.workflow_run || { conclusion: context.job.status };
-            const message = conclusion === 'success'
-              ? '✅ Linting passed'
-              : '❌ Linting failed';
-
-            github.rest.repos.createCommitStatus({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              sha: context.sha,
-              state: conclusion === 'success' ? 'success' : 'failure',
-              description: message,
-              context: 'Lint Check'
-            });
