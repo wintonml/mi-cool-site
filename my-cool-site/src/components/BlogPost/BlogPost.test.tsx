@@ -21,9 +21,9 @@ describe('BlogPost Component', () => {
     expect(screen.getByText(mockPost.content)).toBeInTheDocument();
     expect(screen.getByText(mockPost.date)).toBeInTheDocument();
     expect(screen.getByText(`By ${mockPost.author}`)).toBeInTheDocument();
-    
+
     // Verify tags are present
-    tagValues.forEach(element => {
+    tagValues.forEach((element) => {
       expect(screen.getByText(`#${element}`)).toBeInTheDocument();
     });
   });
@@ -37,9 +37,9 @@ describe('BlogPost Component', () => {
     expect(screen.getByText(mockPost.content)).toBeInTheDocument();
     expect(screen.getByText(mockPost.date)).toBeInTheDocument();
     expect(screen.getByText(`By ${mockPost.author}`)).toBeInTheDocument();
-    
+
     // Verify no tags are visible
-    tagValues.forEach(tag => {
+    tags?.forEach((tag) => {
       expect(screen.queryByText(`#${tag}`)).not.toBeInTheDocument();
     });
   });

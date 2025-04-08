@@ -9,7 +9,7 @@ describe('BlogList Component', () => {
     content: `Content of post ${id}`,
     date: `Date ${id}`,
     author: `Author ${id}`,
-    tags: [`react ${id}`, `test ${id}`]
+    tags: [`react ${id}`, `test ${id}`],
   });
 
   it('renders the blog list container with correct role', () => {
@@ -52,10 +52,10 @@ describe('BlogList Component', () => {
       title: 'Post without tags',
       content: 'Content',
       date: '2024-04-06',
-      author: 'Author'
+      author: 'Author',
     };
     render(<BlogList posts={[postWithoutTags]} />);
-    
+
     expect(screen.getByRole('heading', { name: postWithoutTags.title })).toBeInTheDocument();
     expect(screen.getByText(postWithoutTags.content)).toBeInTheDocument();
     expect(screen.getByText(postWithoutTags.date)).toBeInTheDocument();
