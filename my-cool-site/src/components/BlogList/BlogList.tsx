@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BlogPost from '../BlogPost/BlogPost';
 import './BlogList.css';
+import { BlogListProps } from './BlogList.types';
 
-const BlogList = ({ posts }) => {
+const BlogList = ({ posts }: BlogListProps) => {
   return (
     <div className="blog-list" role="list">
       {posts.map((post, index) => (
