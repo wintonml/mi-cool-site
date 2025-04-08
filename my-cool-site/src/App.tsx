@@ -1,10 +1,11 @@
 import React from 'react';
 import BlogList from './components/BlogList/BlogList';
 import './App.css';
+import { BlogListProps } from './components/BlogList/BlogList.types';
 
 function App() {
   const Author = 'Michael Lennon Winton';
-  const PlaceHolderPosts = [
+  const PlaceHolderPosts: BlogListProps['posts'] = [
     {
       title: 'Welcome to My Blog',
       content:

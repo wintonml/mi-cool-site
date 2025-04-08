@@ -2,7 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './BlogPost.css';
 
-const BlogPost = ({ title, content, date, author, tags }) => {
+interface BlogPostProps {
+  title: string;
+  content: string;
+  date: string;
+  author: string;
+  tags?: string[];
+}
+
+const BlogPost = ({ title, content, date, author, tags }: BlogPostProps) => {
   return (
     <article className="blog-post">
       <header className="blog-post-header">
