@@ -2,6 +2,7 @@ import React from 'react';
 import BlogList from './components/BlogList/BlogList';
 import './App.css';
 import { BlogListProps } from './components/BlogList/BlogList.types';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   const Author = 'Michael Lennon Winton';
@@ -29,6 +30,7 @@ function App() {
         <h1>Mi-cool</h1>
       </header>
       <main>
+        <NavBar />
         <BlogList posts={PlaceHolderPosts} />
       </main>
     </div>
