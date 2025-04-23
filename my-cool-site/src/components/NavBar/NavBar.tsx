@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { NavBarProps } from './NavBar.types';
 import styles from './NavBar.module.css';
 
-const NavBar = () => {
+const NavBar = ({ header, navBar, links }: NavBarProps) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -17,24 +19,28 @@ const NavBar = () => {
   }, [prevScrollPos]);
 
   return (
-    <nav className={`${styles.navbar} ${visible ? styles.visible : styles.hidden}`}>
-      <div className={styles.logo}>Your Logo</div>
-      <ul className={styles.navLinks}>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li>
-          <a href="/projects">Projects</a>
-        </li>
-        <li>
-          <a href="/contact">Contact</a>
-        </li>
-      </ul>
-    </nav>
+    <div className={`${styles.headerContainer} ${visible ? styles.visible : styles.hidden}`}>
+      <header className={styles.header}>
+        <h1>{header}</h1>
+      </header>
+      <nav className={styles.navbar}>
+        <div className={styles.logo}>{navBar}</div>
+        <ul className={styles.navLinks}>
+          {links.map((link, index) => (
+            <li key={index}>
+              <a href={`/${link.toLowerCase()}`}>{link}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
+};
+
+NavBar.propTypes = {
+  header: PropTypes.string.isRequired,
+  navBar: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default NavBar;

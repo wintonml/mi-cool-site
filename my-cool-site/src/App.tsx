@@ -22,15 +22,19 @@ function App() {
       author: Author,
       tags: ['react', 'javascript', 'web-development'],
     },
+    {
+      title: 'Placeholder Post 2',
+      content: 'This is a placeholder post.',
+      date: '2024-04-08',
+      author: Author,
+      tags: ['placeholder', 'post'],
+    },
   ];
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Mi-cool</h1>
-      </header>
       <main>
-        <NavBar />
+        <NavBar header="Mi-cool" navBar="Home" links={['About', 'Projects', 'Videos', 'Blog']} />
         <BlogList posts={PlaceHolderPosts} />
       </main>
     </div>
