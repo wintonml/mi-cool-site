@@ -7,7 +7,7 @@ describe('NavBar Component', () => {
   const mockProps = {
     header: 'Mi-cool',
     navBar: 'Your Logo',
-    links: mockLinks
+    links: mockLinks,
   };
 
   it('renders the header and navigation links', () => {
@@ -17,7 +17,7 @@ describe('NavBar Component', () => {
     expect(screen.getByText(mockProps.header)).toBeInTheDocument();
 
     // Check navigation links
-    mockLinks.forEach(link => {
+    mockLinks.forEach((link) => {
       expect(screen.getByText(link)).toBeInTheDocument();
     });
   });
@@ -30,7 +30,7 @@ describe('NavBar Component', () => {
   it('has correct href attributes for links', () => {
     render(<NavBar {...mockProps} />);
 
-    mockLinks.forEach(link => {
+    mockLinks.forEach((link) => {
       const linkElement = screen.getByText(link);
       expect(linkElement.closest('a')).toHaveAttribute('href', `/${link.toLowerCase()}`);
     });
