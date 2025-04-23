@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BlogPostProps } from './BlogPost.types';
 import './BlogPost.css';
-
-interface BlogPostProps {
-  title: string;
-  content: string;
-  date: string;
-  author: string;
-  tags?: string[];
-}
 
 const BlogPost = ({ title, content, date, author, tags }: BlogPostProps) => {
   return (

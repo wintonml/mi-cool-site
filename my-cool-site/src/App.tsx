@@ -2,6 +2,7 @@ import React from 'react';
 import BlogList from './components/BlogList/BlogList';
 import './App.css';
 import { BlogListProps } from './components/BlogList/BlogList.types';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   const Author = 'Michael Lennon Winton';
@@ -21,14 +22,19 @@ function App() {
       author: Author,
       tags: ['react', 'javascript', 'web-development'],
     },
+    {
+      title: 'Placeholder Post 2',
+      content: 'This is a placeholder post.',
+      date: '2024-04-08',
+      author: Author,
+      tags: ['placeholder', 'post'],
+    },
   ];
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Mi-cool</h1>
-      </header>
       <main>
+        <NavBar header="Mi-cool" navBar="Home" links={['About', 'Projects', 'Videos', 'Blog']} />
         <BlogList posts={PlaceHolderPosts} />
       </main>
     </div>
