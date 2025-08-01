@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { NavBarProps } from './NavBar.types';
 import styles from './NavBar.module.css';
-import { capitalize } from '../../utils/stringHelpers';
+import { capitalize } from '../../utils/StringHelpers/stringHelpers';
 
 const NavBar = ({ header, links }: NavBarProps) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
