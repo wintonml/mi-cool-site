@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import About from './pages/About';
@@ -15,7 +15,7 @@ function App() {
         <NavBar header="Mi-cool" links={['About', 'Projects', 'Videos', 'Blog', 'Home']} />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/mi-cool-site" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Project />} />
