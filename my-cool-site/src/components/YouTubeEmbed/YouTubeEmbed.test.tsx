@@ -24,13 +24,13 @@ describe('YouTubeEmbed', () => {
 
   it('displays the description when provided', () => {
     render(<YouTubeEmbed {...mockProps} />);
-    expect(screen.getByText(mockProps.description!)).toBeInTheDocument();
+    expect(screen.getByText(mockProps.description)).toBeInTheDocument();
   });
 
   it('does not display description when not provided', () => {
     const { description, ...propsWithoutDescription } = mockProps;
     render(<YouTubeEmbed {...propsWithoutDescription} />);
-    expect(screen.queryByText(mockProps.description!)).not.toBeInTheDocument();
+    expect(screen.queryByText(description as string)).not.toBeInTheDocument();
   });
 
   it('has the correct accessibility attributes', () => {
