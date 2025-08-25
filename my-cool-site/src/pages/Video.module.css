@@ -1,0 +1,49 @@
+.videosPage {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.videosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* Ensure all video containers have the same dimensions */
+.videosGrid > * {
+  width: 100%;
+  height: 100%;
+  min-height: 0; /* Allows items to shrink below their content size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .videosGrid {
+    grid-template-columns: 1fr;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .pageTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .videosGrid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1200px;
+  }
+}
