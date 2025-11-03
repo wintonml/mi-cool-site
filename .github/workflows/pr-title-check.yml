@@ -1,0 +1,30 @@
+name: "🔍 Enforce PR Title Convention"
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  validate-pr-title:
+    name: Validate PR Title Format
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check PR title format
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const title = context.payload.pull_request.title.trim();
+            const pattern = /^(feat|fix|docs|chore|refactor|test|style|perf|ci)\s*:\s*\d+\s*:\s*.+$/;
+
+            if (!pattern.test(title)) {
+              core.setFailed(
+                `❌ Invalid PR title format.\n` +
+                `Your title: "${title}"\n\n` +
+                `Expected format: "type : issue-number : description"\n` +
+                `Example: "feat : 123 : add login endpoint"`
+              );
+            } else {
+              console.log(`✅ PR title "${title}" follows the convention.`);
+            }
