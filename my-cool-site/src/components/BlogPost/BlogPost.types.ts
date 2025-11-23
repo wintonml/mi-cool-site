@@ -4,4 +4,5 @@ export interface BlogPostProps {
   date: string;
   author: string;
   tags?: string[];
+  slug?: string;
 }
