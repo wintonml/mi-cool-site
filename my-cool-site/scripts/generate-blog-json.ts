@@ -5,7 +5,7 @@ async function generateBlogJson() {
   const postsDir = path.join(__dirname, '../content/posts');
   const outputDir = path.join(__dirname, '../public');
   const outputFile = path.join(outputDir, 'blog-posts.js');
-  
+
   try {
     // Ensure content/posts directory exists
     try {
@@ -13,7 +13,7 @@ async function generateBlogJson() {
     } catch {
       console.log('Creating content/posts directory...');
       await fs.mkdir(postsDir, { recursive: true });
-      
+
       // Create a sample blog post if none exists
       const samplePostPath = path.join(postsDir, 'welcome.md');
       const sampleContent = `---
@@ -43,21 +43,21 @@ Happy blogging! 🚀
 
     const files = await fs.readdir(postsDir);
     const blogPosts: Record<string, string> = {};
-    
+
     for (const file of files) {
       if (file.endsWith('.md') || file.endsWith('.mdx')) {
         const content = await fs.readFile(path.join(postsDir, file), 'utf8');
         blogPosts[file] = content;
       }
     }
-    
+
     // Ensure public directory exists
     try {
       await fs.access(outputDir);
     } catch {
       await fs.mkdir(outputDir, { recursive: true });
     }
-    
+
     // Write the JavaScript file that will be loaded by the browser
     await fs.writeFile(
       outputFile,
@@ -67,8 +67,10 @@ window.__BLOG_POSTS__ = ${JSON.stringify(blogPosts, null, 2)};
 `,
       'utf8'
     );
-    
-    console.log(`✅ Successfully generated ${Object.keys(blogPosts).length} blog posts to ${outputFile}`);
+
+    console.log(
+      `✅ Successfully generated ${Object.keys(blogPosts).length} blog posts to ${outputFile}`
+    );
   } catch (error) {
     console.error('❌ Error generating blog posts:', error);
     process.exit(1);

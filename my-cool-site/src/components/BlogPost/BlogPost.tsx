@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactMarkdown from 'react-markdown';
 import { BlogPostProps } from './BlogPost.types';
 import './BlogPost.css';
 
@@ -13,7 +14,9 @@ const BlogPost = ({ title, content, date, author, tags }: BlogPostProps) => {
           <span className="blog-post-author">By {author}</span>
         </div>
       </header>
-      <div className="blog-post-content">{content}</div>
+      <div className="blog-post-content">
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </div>
       {tags && tags.length > 0 && (
         <div className="blog-post-tags">
           {tags.map((tag, index) => (
