@@ -32,7 +32,9 @@ BlogPost.propTypes = {
   content: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
+  excerpt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
+  slug: PropTypes.string,
 };
 
 export default BlogPost;
