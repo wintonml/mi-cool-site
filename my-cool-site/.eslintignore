@@ -3,3 +3,5 @@ build
 dist
 coverage
 *.config.js
+# Auto-generated files
+public/blog-posts.js

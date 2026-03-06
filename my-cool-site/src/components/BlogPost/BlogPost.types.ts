@@ -3,5 +3,7 @@ export interface BlogPostProps {
   content: string;
   date: string;
   author: string;
+  excerpt?: string;
   tags?: string[];
+  slug?: string;
 }

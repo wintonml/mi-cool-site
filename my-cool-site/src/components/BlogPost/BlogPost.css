@@ -5,6 +5,7 @@
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
 .blog-post-header {
@@ -29,6 +30,7 @@
 .blog-post-content {
   line-height: 1.6;
   color: #444;
+  text-align: left;
 }
 
 .blog-post-tags {

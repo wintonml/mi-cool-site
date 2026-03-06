@@ -3,6 +3,15 @@ import { render, screen } from '@testing-library/react';
 import BlogPost from './BlogPost';
 import { BlogPostProps } from './BlogPost.types';
 
+// Mock react-markdown
+jest.mock('react-markdown', () => ({
+  __esModule: true,
+  default: ({ children }: { children: string }) => {
+    // Simple mock that just returns the content as plain text
+    return children;
+  },
+}));
+
 describe('BlogPost Component', () => {
   const tagValues: string[] = ['test', 'blog', 'react'];
   const mockPost: BlogPostProps = {
