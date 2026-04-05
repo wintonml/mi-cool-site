@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar header="Mi-cool" links={['About', 'Projects', 'Videos', 'Blog', 'Home']} />
+        <NavBar header="Mi-cool" links={['Home', 'Blog', 'Projects', 'Videos', 'About']} />
         <main>
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} />

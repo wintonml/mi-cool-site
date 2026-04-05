@@ -23,9 +23,6 @@ const NavBar = ({ header, links }: NavBarProps) => {
 
   // Filter out the current page from the navigation links
   const currentPage = location.pathname.split('/')[1]; // Get the current page name
-  const filteredLinks = links.filter(
-    (link) => link.toLowerCase() !== currentPage && currentPage !== ''
-  );
 
   return (
     <div className={`${styles.headerContainer} ${visible ? styles.visible : styles.hidden}`}>
@@ -39,9 +36,13 @@ const NavBar = ({ header, links }: NavBarProps) => {
           <div className={styles.logo}>{capitalize(currentPage)}</div>
         </Link>
         <ul className={styles.navLinks}>
-          {filteredLinks.map((link, index) => (
+          {links.map((link, index) => (
             <li key={index}>
-              <Link to={`/${link.toLowerCase()}`}>{link}</Link>
+              {link.toLowerCase() === currentPage.toLowerCase() ? (
+                <span>{link}</span>
+              ) : (
+                <Link to={`/${link.toLowerCase()}`}>{link}</Link>
+              )}
             </li>
           ))}
         </ul>
