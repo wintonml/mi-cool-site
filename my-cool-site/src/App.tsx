@@ -15,6 +15,7 @@ function App() {
         <NavBar header="Mi-cool" links={['About', 'Projects', 'Videos', 'Blog', 'Home']} />
         <main>
           <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/mi-cool-site" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
