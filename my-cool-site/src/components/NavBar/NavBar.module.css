@@ -65,6 +65,22 @@
   color: #007bff;
 }
 
+.navLinkActive {
+  color: #000000;
+  font-weight: bold;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.navLink {
+  color: #666;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #007bff;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 0 1rem;

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { NavBarProps } from './NavBar.types';
 import styles from './NavBar.module.css';
-import { capitalize } from '../../utils/StringHelpers/stringHelpers';
 
 const NavBar = ({ header, links }: NavBarProps) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -32,16 +31,15 @@ const NavBar = ({ header, links }: NavBarProps) => {
         </Link>
       </header>
       <nav className={styles.navbar}>
-        <Link to={`/${currentPage}`} style={{ textDecoration: 'none', color: 'Black' }}>
-          <div className={styles.logo}>{capitalize(currentPage)}</div>
-        </Link>
         <ul className={styles.navLinks}>
           {links.map((link, index) => (
             <li key={index}>
               {link.toLowerCase() === currentPage.toLowerCase() ? (
-                <span>{link}</span>
+                <span className={styles.navLinkActive}>{link}</span>
               ) : (
-                <Link to={`/${link.toLowerCase()}`}>{link}</Link>
+                <Link to={`/${link.toLowerCase()}`} className={styles.navLink}>
+                  {link}
+                </Link>
               )}
             </li>
           ))}
