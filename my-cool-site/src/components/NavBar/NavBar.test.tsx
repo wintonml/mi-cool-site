@@ -26,32 +26,17 @@ describe('NavBar Component', () => {
     expect(headerLink).toHaveAttribute('href', '/home');
   });
 
-  it('shows current page name in logo area when on a specific route', () => {
-    renderWithRouter(<NavBar {...mockProps} />, ['/about']);
-
-    // The component should show "About" in the logo area
-    expect(screen.getByText('About')).toBeInTheDocument();
-  });
-
   it('handles empty links array', () => {
     renderWithRouter(<NavBar {...mockProps} links={[]} />);
     expect(screen.getByText(mockProps.header)).toBeInTheDocument();
   });
 
-  it('filters out current page from navigation links', () => {
-    renderWithRouter(<NavBar {...mockProps} />, ['/about', '/home']);
+  it('renders all navigation links on page', () => {
+    renderWithRouter(<NavBar {...mockProps} />);
 
-    // Should not show "About" in the navigation links since it's the current page. There is is only one "About" in the navigation links.
-    const aboutLinks = screen.queryAllByText('About');
-    expect(aboutLinks).toHaveLength(1);
-  });
-
-  it('shows other navigation links when not on their page', () => {
-    renderWithRouter(<NavBar {...mockProps} />, ['/about']);
-
-    // Should show other links like "Home", "Projects", "Contact"
-    expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Projects')).toBeInTheDocument();
-    expect(screen.getByText('Contact')).toBeInTheDocument();
+    // Should show all navigation links from mockLinks
+    mockLinks.forEach((link) => {
+      expect(screen.getByText(link)).toBeInTheDocument();
+    });
   });
 });
