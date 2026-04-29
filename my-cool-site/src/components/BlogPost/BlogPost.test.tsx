@@ -3,11 +3,18 @@ import { render, screen } from '@testing-library/react';
 import BlogPost from './BlogPost';
 import { BlogPostProps } from './BlogPost.types';
 
+// Mock rehype-raw
+jest.mock('rehype-raw', () => ({
+  __esModule: true,
+  default: () => (tree: unknown) => tree,
+}));
+
 // Mock react-markdown
 jest.mock('react-markdown', () => ({
   __esModule: true,
-  default: ({ children }: { children: string }) => {
+  default: ({ children, _rehypePlugins }: { children: string; _rehypePlugins?: unknown[] }) => {
     // Simple mock that just returns the content as plain text
+    // Ignore rehypePlugins prop for testing
     return children;
   },
 }));
