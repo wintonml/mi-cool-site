@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { BlogPostProps } from './BlogPost.types';
 import './BlogPost.css';
 
@@ -15,7 +16,7 @@ const BlogPost = ({ title, content, date, author, tags }: BlogPostProps) => {
         </div>
       </header>
       <div className="blog-post-content">
-        <ReactMarkdown>{content}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
       </div>
       {tags && tags.length > 0 && (
         <div className="blog-post-tags">
