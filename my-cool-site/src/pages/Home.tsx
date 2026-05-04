@@ -1,8 +1,17 @@
 import React from 'react';
-import PlaceholderPage from '../components/PlaceholderPage/PlaceholderPage';
+import ActionFeed from '../components/ActionFeed/ActionFeed';
+import styles from './Home.module.css';
 
 const Home: React.FC = () => {
-  return <PlaceholderPage title="Home" />;
+  return (
+    <div className={styles.homePage}>
+      <div className={styles.hero}>
+        <h1>Welcome to My Cool Site</h1>
+        <p>Check out my latest activities below</p>
+      </div>
+      <ActionFeed maxItems={5} />
+    </div>
+  );
 };
 
 export default Home;
