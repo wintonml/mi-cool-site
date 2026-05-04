@@ -68,3 +68,38 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Local Testing for GitHub Pages Issues
+
+### Testing Client-Side Routing Locally
+
+Since GitHub Pages serves static files (unlike the development server), you need to test routing behavior differently:
+
+#### Local setup
+```bash
+# Temporarily change package.json homepage from:
+# "homepage": "https://wintonml.github.io/mi-cool-site"
+# To:
+# "homepage": "."
+
+npm run build
+npx serve build
+```
+Visit `http://localhost:3000/#/home` and test refresh functionality.
+
+**Important:** Remember to change the `homepage` back to the GitHub Pages URL before deploying:
+```json
+"homepage": "https://wintonml.github.io/mi-cool-site"
+```
+
+#### Why this is needed:
+- `npm start` uses a development server with client-side routing support
+- GitHub Pages is a static file server that returns 404s for non-existent paths
+- `serve` mimics GitHub Pages behavior for accurate local testing
+- The `homepage` field in package.json affects asset paths in the build
+
+#### Common Issues:
+- **404 errors on refresh**: This is expected behavior for static hosting - use HashRouter to fix
+- **Asset 404s**: Use the `-s` flag for SPA mode or adjust the `homepage` field in package.json
+- **CSP errors**: Add appropriate Content-Security-Policy meta tags if needed
+- **NavBar not working**: Ensure all links use hash format (`#/home`) when using HashRouter

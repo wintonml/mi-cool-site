@@ -1,17 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import NavBar from './NavBar';
 
 describe('NavBar Component', () => {
-  const mockLinks = ['Home', 'About', 'Projects', 'Contact'];
+  const mockLinks = ['Home', 'Blog', 'Projects', 'Videos'];
   const mockProps = {
     header: 'Mi-cool',
     links: mockLinks,
   };
 
-  const renderWithRouter = (component: React.ReactElement, initialEntries: string[] = ['/']) => {
-    return render(<MemoryRouter initialEntries={initialEntries}>{component}</MemoryRouter>);
+  const renderWithRouter = (component: React.ReactElement) => {
+    return render(<HashRouter>{component}</HashRouter>);
   };
 
   it('renders the header correctly', () => {
@@ -23,7 +23,7 @@ describe('NavBar Component', () => {
     renderWithRouter(<NavBar {...mockProps} />);
 
     const headerLink = screen.getByText(mockProps.header).closest('a');
-    expect(headerLink).toHaveAttribute('href', '/home');
+    expect(headerLink).toHaveAttribute('href', '#/home');
   });
 
   it('handles empty links array', () => {

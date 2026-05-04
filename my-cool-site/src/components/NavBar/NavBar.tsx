@@ -21,7 +21,7 @@ const NavBar = ({ header, links }: NavBarProps) => {
   }, [prevScrollPos]);
 
   // Filter out the current page from the navigation links
-  const currentPage = location.pathname.split('/')[1]; // Get the current page name
+  const currentPage = location.pathname.replace('/', '') || 'home'; // Get the current page name from hash, handle concatenation
 
   return (
     <div className={`${styles.headerContainer} ${visible ? styles.visible : styles.hidden}`}>
