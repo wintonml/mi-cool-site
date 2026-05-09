@@ -1,6 +1,6 @@
 ---
 title: "5k PB! How good"
-date: "2026-04-19"
+date: "19-04-2026"
 author: "Lennon Winton"
 tags: ["sport", "run"]
 excerpt: "I achieved a new 5k PB!"
