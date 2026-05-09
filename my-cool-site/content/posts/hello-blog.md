@@ -1,6 +1,6 @@
 ---
 title: "Hello Blog"
-date: "2026-03-05"
+date: "05-03-2026"
 author: "Lennon Winton"
 tags: ["welcome", "introduction"]
 excerpt: "This is my first blog post on my new site!"

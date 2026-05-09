@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import BlogPost from './BlogPost';
-import { BlogPostProps } from './BlogPost.types';
+import BlogPost from '../components/BlogPost/BlogPost';
+import { BlogPostProps } from '../components/BlogPost/BlogPost.types';
 
 // Mock rehype-raw
 jest.mock('rehype-raw', () => ({

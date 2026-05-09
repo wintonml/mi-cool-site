@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { HashRouter } from 'react-router-dom';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar/NavBar';
 
 describe('NavBar Component', () => {
   const mockLinks = ['Home', 'Blog', 'Projects', 'Videos'];

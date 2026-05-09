@@ -1,4 +1,4 @@
-import { capitalize, capitalizeWords } from './stringHelpers';
+import { capitalize, capitalizeWords } from '../utils/StringHelpers/stringHelpers';
 
 describe('stringHelpers', () => {
   describe('capitalize', () => {
