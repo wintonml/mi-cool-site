@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './YouTubeEmbed.module.css';
+import { YouTubeEmbedProps } from './YouTubeEmbed.types';
 
-interface YouTubeEmbedProps {
-  videoId: string;
-  title: string;
-  description?: string;
-}
-
-const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title, description }) => {
+const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
+  videoId,
+  title,
+  datePublished,
+  description,
+}) => {
   return (
     <div className={styles.videoContainer}>
       <div className={styles.videoWrapper}>
@@ -21,6 +21,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title, description
       </div>
       <div className={styles.videoInfo}>
         <h3 className={styles.videoTitle}>{title}</h3>
+        <p className={styles.videoDatePublished}>Date Published: {datePublished}</p>
         {description && <p className={styles.videoDescription}>{description}</p>}
       </div>
     </div>

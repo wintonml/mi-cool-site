@@ -7,6 +7,7 @@ describe('YouTubeEmbed', () => {
   const mockProps = {
     videoId: 'dQw4w9WgXcQ',
     title: 'Test Video',
+    datePublished: '18-05-2026',
     description: 'This is a test video description',
   };
 
@@ -20,6 +21,11 @@ describe('YouTubeEmbed', () => {
   it('displays the correct title', () => {
     render(<YouTubeEmbed {...mockProps} />);
     expect(screen.getByText(mockProps.title)).toBeInTheDocument();
+  });
+
+  it('displays the correct date published', () => {
+    render(<YouTubeEmbed {...mockProps} />);
+    expect(screen.getByText(`Date Published: ${mockProps.datePublished}`)).toBeInTheDocument();
   });
 
   it('displays the description when provided', () => {
