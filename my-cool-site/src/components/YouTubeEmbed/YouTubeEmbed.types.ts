@@ -11,12 +11,12 @@ export interface YouTubeEmbedProps {
   title: string;
 
   /**
+   * The date the video was published. The format is DD-MM-YYYY
+   */
+  datePublished: string;
+
+  /**
    * Optional description for the video
    */
   description?: string;
-
-  /**
-   * Optional className for custom styling
-   */
-  className?: string;
 }

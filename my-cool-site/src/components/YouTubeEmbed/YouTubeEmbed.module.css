@@ -45,6 +45,13 @@
   line-height: 1.5;
 }
 
+.videoDatePublished {
+  margin: 0;
+  color: #666;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .videoContainer {
