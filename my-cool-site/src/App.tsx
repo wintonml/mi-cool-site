@@ -6,20 +6,27 @@ import Project from './pages/Project';
 import Video from './pages/Video';
 import Blog from './pages/Blog';
 import Home from './pages/Home';
+import { PAGE_NAMES, PAGE_PATHS } from './common/constants/pages';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar header="Mi-cool" links={['Home', 'Blog', 'Projects', 'Videos']} />
+        <NavBar
+          header="Mi-cool"
+          links={[PAGE_NAMES.HOME, PAGE_NAMES.BLOG, PAGE_NAMES.PROJECTS, PAGE_NAMES.VIDEOS]}
+        />
         <main>
           <Routes>
-            <Route path="/" element={<Navigate to="/home" replace />} />
-            <Route path="/mi-cool-site" element={<Navigate to="/home" replace />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/projects" element={<Project />} />
-            <Route path="/videos" element={<Video />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/" element={<Navigate to={PAGE_PATHS.HOME} replace />} />
+            <Route
+              path={PAGE_PATHS.MI_COOL_SITE}
+              element={<Navigate to={PAGE_PATHS.HOME} replace />}
+            />
+            <Route path={PAGE_PATHS.HOME} element={<Home />} />
+            <Route path={PAGE_PATHS.PROJECTS} element={<Project />} />
+            <Route path={PAGE_PATHS.VIDEOS} element={<Video />} />
+            <Route path={PAGE_PATHS.BLOG} element={<Blog />} />
           </Routes>
         </main>
       </div>

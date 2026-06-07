@@ -39,6 +39,22 @@ describe('YouTubeEmbed', () => {
     expect(screen.queryByText(description as string)).not.toBeInTheDocument();
   });
 
+  it('does not render video metadata when displayVideoOnly is true', () => {
+    render(<YouTubeEmbed {...mockProps} displayVideoOnly />);
+    expect(screen.queryByText(mockProps.title)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(`Date Published: ${mockProps.datePublished}`)
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText(mockProps.description)).not.toBeInTheDocument();
+  });
+
+  it('renders video metadata when displayVideoOnly is false', () => {
+    render(<YouTubeEmbed {...mockProps} displayVideoOnly={false} />);
+    expect(screen.getByText(mockProps.title)).toBeInTheDocument();
+    expect(screen.getByText(`Date Published: ${mockProps.datePublished}`)).toBeInTheDocument();
+    expect(screen.getByText(mockProps.description)).toBeInTheDocument();
+  });
+
   it('has the correct accessibility attributes', () => {
     render(<YouTubeEmbed {...mockProps} />);
     const iframe = screen.getByTitle(mockProps.title);

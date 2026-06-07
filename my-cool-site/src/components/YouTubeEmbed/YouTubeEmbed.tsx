@@ -7,6 +7,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
   title,
   datePublished,
   description,
+  displayVideoOnly,
 }) => {
   return (
     <div className={styles.videoContainer}>
@@ -19,11 +20,13 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
           className={styles.videoIframe}
         />
       </div>
-      <div className={styles.videoInfo}>
-        <h3 className={styles.videoTitle}>{title}</h3>
-        <p className={styles.videoDatePublished}>Date Published: {datePublished}</p>
-        {description && <p className={styles.videoDescription}>{description}</p>}
-      </div>
+      {!displayVideoOnly && (
+        <div className={styles.videoInfo}>
+          <h3 className={styles.videoTitle}>{title}</h3>
+          <p className={styles.videoDatePublished}>Date Published: {datePublished}</p>
+          {description && <p className={styles.videoDescription}>{description}</p>}
+        </div>
+      )}
     </div>
   );
 };
