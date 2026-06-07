@@ -42,7 +42,9 @@ describe('YouTubeEmbed', () => {
   it('does not render video metadata when displayVideoOnly is true', () => {
     render(<YouTubeEmbed {...mockProps} displayVideoOnly />);
     expect(screen.queryByText(mockProps.title)).not.toBeInTheDocument();
-    expect(screen.queryByText(`Date Published: ${mockProps.datePublished}`)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(`Date Published: ${mockProps.datePublished}`)
+    ).not.toBeInTheDocument();
     expect(screen.queryByText(mockProps.description)).not.toBeInTheDocument();
   });
 

@@ -1,9 +1,4 @@
-import videos from '../content/videos/videos.json';
-import {
-  getLatestVideo,
-  getLatestVideoFromJson,
-  parseVideoPublishedDate,
-} from '../utils/videoUtils';
+import { getLatestVideo, parseVideoPublishedDate } from '../utils/videoUtils';
 import type { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
 
 describe('videoUtils', () => {
