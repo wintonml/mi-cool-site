@@ -19,4 +19,9 @@ export interface YouTubeEmbedProps {
    * Optional description for the video
    */
   description?: string;
+
+  /**
+   * Optional flag to display video only
+   */
+  displayVideoOnly?: boolean;
 }

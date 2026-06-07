@@ -16,6 +16,7 @@ const Video: React.FC = () => {
             title={video.title}
             datePublished={video.datePublished}
             description={video.description}
+            displayVideoOnly={false}
           />
         ))}
       </div>
