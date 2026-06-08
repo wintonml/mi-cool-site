@@ -17,8 +17,8 @@ const Home: React.FC = () => {
           <p className={Styles.heroIntro}>Welcome to Mi-cool Site</p>
           <h1 className={Styles.heroTitle}>A place for projects, videos, and ideas.</h1>
           <p className={Styles.heroDescription}>
-            I&#39;m a Kiwi who has moved from Wellington to the Edinburgh. Solving problems is a
-            passion of mine, whether it be coding or climbing.
+            I&#39;m a Kiwi who has moved from Wellington to Edinburgh. Solving problems is a passion
+            of mine, whether it be coding or climbing.
             <br />
             I&#39;ve been working in the software industry since 2021. Starting out as a software
             automation engineer and now work as a full-stack developer.
