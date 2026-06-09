@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
+import Footer from './components/Footer';
 import NavBar from './components/NavBar/NavBar';
 import Project from './pages/Project';
 import Video from './pages/Video';
@@ -29,6 +30,7 @@ function App() {
             <Route path={PAGE_PATHS.BLOG} element={<Blog />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );
