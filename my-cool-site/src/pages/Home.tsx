@@ -2,7 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Styles from './Home.module.css';
-import YouTubeEmbed from '../components/YouTubeEmbed/YouTubeEmbed';
+import YouTubeVideo from '../components/YouTubeVideo/YouTubeVideo';
 import { HomeProps } from './interfaces/Home.types';
 import { Link } from 'react-router-dom';
 import { PAGE_PATHS } from './../common/constants/pages';
@@ -94,14 +94,7 @@ const Home: React.FC<HomeProps> = ({ post, video }) => {
           <article className={Styles.featuredCard}>
             <span className={Styles.sectionBadge}>Latest video</span>
             {video ? (
-              <YouTubeEmbed
-                key={video.videoId}
-                videoId={video.videoId}
-                title={video.title}
-                datePublished={video.datePublished}
-                description={video.description}
-                displayVideoOnly={true}
-              />
+              <YouTubeVideo key={video.videoId} videoId={video.videoId} title={video.title} />
             ) : (
               <p>No videos to show.</p>
             )}
