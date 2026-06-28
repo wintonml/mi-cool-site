@@ -1,6 +1,6 @@
 import React from 'react';
 import Styles from './Home.module.css';
-import YouTubeEmbed from '../components/YouTubeEmbed/YouTubeEmbed';
+import YouTubeVideo from '../components/YouTubeVideo/YouTubeVideo';
 import { getAllPosts } from '../utils/markdownUtils';
 import { getLatestVideoFromJson } from '../utils/videoUtils';
 import { Link } from 'react-router-dom';
@@ -89,13 +89,10 @@ const Home: React.FC = () => {
           <article className={Styles.featuredCard}>
             <span className={Styles.sectionBadge}>Latest video</span>
             {latestVideo ? (
-              <YouTubeEmbed
+              <YouTubeVideo
                 key={latestVideo?.videoId}
                 videoId={latestVideo?.videoId}
                 title={latestVideo?.title}
-                datePublished={latestVideo?.datePublished}
-                description={latestVideo?.description}
-                displayVideoOnly={true}
               />
             ) : (
               <p>No videos to show.</p>

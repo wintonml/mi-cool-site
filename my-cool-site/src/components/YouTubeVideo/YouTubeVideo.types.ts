@@ -1,4 +1,4 @@
-export interface YouTubeEmbedProps {
+export interface YouTubeVideoProps {
   /**
    * The YouTube video ID (the part after 'v=' in the URL)
    * Example: For 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', the videoId is 'dQw4w9WgXcQ'
@@ -9,14 +9,4 @@ export interface YouTubeEmbedProps {
    * Title of the video
    */
   title: string;
-
-  /**
-   * The date the video was published. The format is DD-MM-YYYY
-   */
-  datePublished: string;
-
-  /**
-   * Optional description for the video
-   */
-  description?: string;
 }
