@@ -23,6 +23,8 @@ const Home: React.FC = () => {
             I&#39;ve been working in the software industry since 2021. Starting out as a software
             automation engineer and now work as a full-stack developer.
           </p>
+          {/* Add this section back when I have a projects page to add.
+          I've removed the blog button at the same time as it did not look good as it was.
           <div className={Styles.ctaGroup}>
             <Link to={PAGE_PATHS.PROJECTS} className={Styles.ctaButton}>
               View Projects
@@ -30,7 +32,7 @@ const Home: React.FC = () => {
             <Link to={PAGE_PATHS.BLOG} className={Styles.ctaSecondary}>
               Read Blog
             </Link>
-          </div>
+          </div> */}
         </div>
         <aside className={Styles.heroAside}>
           <div className={Styles.statCard}>
