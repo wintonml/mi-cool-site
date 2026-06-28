@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import Styles from './Home.module.css';
 import YouTubeEmbed from '../components/YouTubeEmbed/YouTubeEmbed';
 import { getAllPosts } from '../utils/markdownUtils';
@@ -75,11 +77,13 @@ const Home: React.FC = () => {
           <article className={Styles.featuredCard}>
             <span className={Styles.sectionBadge}>Latest post</span>
             <h3>{latestPost ? latestPost.title : 'Nothing new to share yet'}</h3>
-            <p>
-              {latestPost
-                ? `${latestPost.content.slice(0, 160)}...`
-                : 'Life has been quiet. Hopefully there will be an update soon.'}
-            </p>
+            {latestPost ? (
+              <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {latestPost.content.slice(0, 160).concat('...')}
+              </ReactMarkdown>
+            ) : (
+              <p>Life has been quiet. Hopefully there will be an update soon.</p>
+            )}
             {latestPost && (
               <Link to={PAGE_PATHS.BLOG} className={Styles.cardLink}>
                 Read the latest post
