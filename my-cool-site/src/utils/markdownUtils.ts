@@ -49,7 +49,11 @@ export function initializeBlogPosts(blogPosts: Record<string, string>) {
     return slugs
       .map((slug) => getPostBySlug(slug))
       .filter((post): post is BlogPost => post !== null)
-      .sort((a, b) => (a.date > b.date ? -1 : 1));
+      .sort((a, b) => {
+        const dateA = new Date(a.date.split('-').reverse().join('-'));
+        const dateB = new Date(b.date.split('-').reverse().join('-'));
+        return dateB.getTime() - dateA.getTime();
+      });
   };
 }
 
