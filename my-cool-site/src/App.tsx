@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
+import './utils/initBlogPosts'; // Initialize blog posts
 import Footer from './components/Footer';
 import NavBar from './components/NavBar/NavBar';
 //import Project from './pages/Project';
