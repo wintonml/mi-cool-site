@@ -1,10 +1,10 @@
 import React from 'react';
 import YouTubeEmbed from '../components/YouTubeEmbed/YouTubeEmbed';
 import { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
+import { VideoProps } from './interfaces/Video.types';
 import styles from './Video.module.css';
-import videos from '../content/videos/videos.json';
 
-const Video: React.FC = () => {
+const Video: React.FC<VideoProps> = ({ videos }) => {
   return (
     <div className={styles.videosPage}>
       <h1 className={styles.pageTitle}>Featured Videos</h1>

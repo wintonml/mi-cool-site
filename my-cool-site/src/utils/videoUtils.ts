@@ -1,5 +1,4 @@
 import type { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
-import videos from '../content/videos/videos.json';
 
 /**
  * Parses a published date string in DD-MM-YYYY format.
@@ -24,11 +23,4 @@ export function getLatestVideo(videosToSearch: YouTubeEmbedProps[]): YouTubeEmbe
         parseVideoPublishedDate(b.datePublished).getTime() -
         parseVideoPublishedDate(a.datePublished).getTime()
     )[0];
-}
-
-/**
- * Returns the latest video from the project videos.json file.
- */
-export function getLatestVideoFromJson(): YouTubeEmbedProps | null {
-  return getLatestVideo(videos);
 }

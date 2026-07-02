@@ -1,11 +1,8 @@
 import React from 'react';
 import BlogPost from '../components/BlogPost/BlogPost';
-import { getAllPosts } from '../utils/markdownUtils';
-import '../utils/initBlogPosts'; // Initialize blog posts
+import { BlogProps } from './interfaces/Blog.types';
 
-const Blog: React.FC = () => {
-  const posts = getAllPosts();
-
+const Blog: React.FC<BlogProps> = ({ posts }) => {
   return (
     <div className="blog-page">
       <h1>Blog</h1>

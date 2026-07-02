@@ -3,15 +3,11 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Styles from './Home.module.css';
 import YouTubeEmbed from '../components/YouTubeEmbed/YouTubeEmbed';
-import { getAllPosts } from '../utils/markdownUtils';
-import { getLatestVideoFromJson } from '../utils/videoUtils';
+import { HomeProps } from './interfaces/Home.types';
 import { Link } from 'react-router-dom';
 import { PAGE_PATHS } from './../common/constants/pages';
 
-const Home: React.FC = () => {
-  const posts = getAllPosts();
-  const latestPost = posts[0];
-  const latestVideo = getLatestVideoFromJson();
+const Home: React.FC<HomeProps> = ({ post, video }) => {
   return (
     <div className={Styles.homePage}>
       <section className={Styles.hero}>
@@ -47,7 +43,7 @@ const Home: React.FC = () => {
           <div className={Styles.statCard}>
             <Link to={PAGE_PATHS.BLOG} className={Styles.statLink}>
               <span className={Styles.statLabel}>Latest Update</span>
-              <p>{latestPost ? latestPost.title : 'New content coming soon.'}</p>
+              <p>{post ? post.title : 'New content coming soon.'}</p>
             </Link>
           </div>
         </aside>
@@ -76,15 +72,15 @@ const Home: React.FC = () => {
           </article>
           <article className={Styles.featuredCard}>
             <span className={Styles.sectionBadge}>Latest post</span>
-            <h3>{latestPost ? latestPost.title : 'Nothing new to share yet'}</h3>
-            {latestPost ? (
+            <h3>{post ? post.title : 'Nothing new to share yet'}</h3>
+            {post ? (
               <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                {latestPost.content.slice(0, 160).concat('...')}
+                {post.content.slice(0, 160).concat('...')}
               </ReactMarkdown>
             ) : (
               <p>Life has been quiet. Hopefully there will be an update soon.</p>
             )}
-            {latestPost && (
+            {post && (
               <Link to={PAGE_PATHS.BLOG} className={Styles.cardLink}>
                 Read the latest post
               </Link>
@@ -92,13 +88,13 @@ const Home: React.FC = () => {
           </article>
           <article className={Styles.featuredCard}>
             <span className={Styles.sectionBadge}>Latest video</span>
-            {latestVideo ? (
+            {video ? (
               <YouTubeEmbed
-                key={latestVideo?.videoId}
-                videoId={latestVideo?.videoId}
-                title={latestVideo?.title}
-                datePublished={latestVideo?.datePublished}
-                description={latestVideo?.description}
+                key={video.videoId}
+                videoId={video.videoId}
+                title={video.title}
+                datePublished={video.datePublished}
+                description={video.description}
                 displayVideoOnly={true}
               />
             ) : (
