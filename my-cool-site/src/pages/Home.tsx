@@ -8,6 +8,12 @@ import { Link } from 'react-router-dom';
 import { PAGE_PATHS } from './../common/constants/pages';
 
 const Home: React.FC<HomeProps> = ({ post, video }) => {
+  const contentSliceLength = 160;
+  let content = post?.content.slice(0, contentSliceLength).trim();
+  if (content && post && contentSliceLength < post.content.length && !content.endsWith('.')) {
+    content = content.concat('...');
+  }
+
   return (
     <div className={Styles.homePage}>
       <section className={Styles.hero}>
@@ -73,10 +79,8 @@ const Home: React.FC<HomeProps> = ({ post, video }) => {
           <article className={Styles.featuredCard}>
             <span className={Styles.sectionBadge}>Latest post</span>
             <h3>{post ? post.title : 'Nothing new to share yet'}</h3>
-            {post ? (
-              <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                {post.content.slice(0, 160).concat('...')}
-              </ReactMarkdown>
+            {content ? (
+              <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
             ) : (
               <p>Life has been quiet. Hopefully there will be an update soon.</p>
             )}
