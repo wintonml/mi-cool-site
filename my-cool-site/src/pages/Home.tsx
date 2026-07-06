@@ -42,8 +42,9 @@ const Home: React.FC<HomeProps> = ({ post, video }) => {
           <div className={Styles.statCard}>
             <span className={Styles.statLabel}>Current Focus</span>
             <p>
-              Improving full-stack development skills by gaining more experience with React and
-              TypeScript.
+              Learning about designing data-intensive applications.
+              <br />
+              Currently, I&#39;m reading Designing Data-Intensive Applications by Martin Kleppmann.
             </p>
           </div>
           <div className={Styles.statCard}>
