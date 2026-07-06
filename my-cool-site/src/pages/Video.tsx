@@ -16,7 +16,6 @@ const Video: React.FC<VideoProps> = ({ videos }) => {
             title={video.title}
             datePublished={video.datePublished}
             description={video.description}
-            displayVideoOnly={false}
           />
         ))}
       </div>
