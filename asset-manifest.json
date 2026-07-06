@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mi-cool-site/static/css/main.ad759591.css",
-    "main.js": "/mi-cool-site/static/js/main.047f1a54.js",
+    "main.css": "/mi-cool-site/static/css/main.c67a2651.css",
+    "main.js": "/mi-cool-site/static/js/main.230b26a9.js",
     "index.html": "/mi-cool-site/index.html",
-    "main.ad759591.css.map": "/mi-cool-site/static/css/main.ad759591.css.map",
-    "main.047f1a54.js.map": "/mi-cool-site/static/js/main.047f1a54.js.map"
+    "main.c67a2651.css.map": "/mi-cool-site/static/css/main.c67a2651.css.map",
+    "main.230b26a9.js.map": "/mi-cool-site/static/js/main.230b26a9.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad759591.css",
-    "static/js/main.047f1a54.js"
+    "static/css/main.c67a2651.css",
+    "static/js/main.230b26a9.js"
   ]
 }
