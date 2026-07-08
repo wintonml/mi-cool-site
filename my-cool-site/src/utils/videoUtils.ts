@@ -1,5 +1,12 @@
 import type { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
 
+export enum VideoSortOption {
+  TitleAsc = 'title-asc',
+  TitleDesc = 'title-desc',
+  DateAsc = 'date-asc',
+  DateDesc = 'date-desc',
+}
+
 /**
  * Parses a published date string in DD-MM-YYYY format.
  */
@@ -16,11 +23,32 @@ export function getLatestVideo(videosToSearch: YouTubeEmbedProps[]): YouTubeEmbe
     return null;
   }
 
-  return videosToSearch
-    .slice()
-    .sort(
-      (a, b) =>
-        parseVideoPublishedDate(b.datePublished).getTime() -
-        parseVideoPublishedDate(a.datePublished).getTime()
-    )[0];
+  return sortVideos(videosToSearch, VideoSortOption.DateDesc)[0];
+}
+
+export function sortVideos(
+  videosToSort: YouTubeEmbedProps[],
+  sortOption: VideoSortOption
+): YouTubeEmbedProps[] {
+  const sortedVideos = [...videosToSort];
+
+  switch (sortOption) {
+    case VideoSortOption.TitleAsc:
+      return sortedVideos.sort((a, b) => a.title.localeCompare(b.title));
+    case VideoSortOption.TitleDesc:
+      return sortedVideos.sort((a, b) => b.title.localeCompare(a.title));
+    case VideoSortOption.DateAsc:
+      return sortedVideos.sort(
+        (a, b) =>
+          parseVideoPublishedDate(a.datePublished).getTime() -
+          parseVideoPublishedDate(b.datePublished).getTime()
+      );
+    case VideoSortOption.DateDesc:
+    default:
+      return sortedVideos.sort(
+        (a, b) =>
+          parseVideoPublishedDate(b.datePublished).getTime() -
+          parseVideoPublishedDate(a.datePublished).getTime()
+      );
+  }
 }
