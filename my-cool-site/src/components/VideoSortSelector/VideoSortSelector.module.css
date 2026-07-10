@@ -1,0 +1,22 @@
+.sortControl {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.sortControl select {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sortControl {
+    align-items: left;
+  }
+}
