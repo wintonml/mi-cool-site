@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import VideoSortSelector from '../components/VideoSortSelector/VideoSortSelector';
 import YouTubeEmbed from '../components/YouTubeEmbed/YouTubeEmbed';
 import { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
 import { sortVideos, VideoSortOption } from '../utils/videoUtils';
@@ -14,18 +15,7 @@ const Video: React.FC<VideoProps> = ({ videos }) => {
     <div className={styles.videosPage}>
       <div className={styles.pageHeader}>
         <h1 className={styles.pageTitle}>Featured Videos</h1>
-        <label className={styles.sortControl}>
-          <span>Sort by</span>
-          <select
-            value={sortOption}
-            onChange={(event) => setSortOption(event.target.value as VideoSortOption)}
-          >
-            <option value={VideoSortOption.DateDesc}>Date published (newest first)</option>
-            <option value={VideoSortOption.DateAsc}>Date published (oldest first)</option>
-            <option value={VideoSortOption.TitleAsc}>Title (A-Z)</option>
-            <option value={VideoSortOption.TitleDesc}>Title (Z-A)</option>
-          </select>
-        </label>
+        <VideoSortSelector value={sortOption} onChange={setSortOption} />
       </div>
       <div className={styles.videosGrid}>
         {sortedVideos.map((video: YouTubeEmbedProps) => (

@@ -1,4 +1,9 @@
-import { getLatestVideo, parseVideoPublishedDate, sortVideos } from '../utils/videoUtils';
+import {
+  getLatestVideo,
+  parseVideoPublishedDate,
+  sortVideos,
+  VideoSortOption,
+} from '../utils/videoUtils';
 import type { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
 
 describe('videoUtils', () => {
@@ -55,11 +60,17 @@ describe('videoUtils', () => {
       },
     ];
 
-    const titleSorted = sortVideos(customVideos, 'title-asc');
-    expect(titleSorted.map((video) => video.videoId)).toEqual(['2', '1', '3']);
+    const titleSortedAsc = sortVideos(customVideos, VideoSortOption.TitleAsc);
+    expect(titleSortedAsc.map((video) => video.videoId)).toEqual(['2', '1', '3']);
 
-    const dateSorted = sortVideos(customVideos, 'date-desc');
-    expect(dateSorted.map((video) => video.videoId)).toEqual(['3', '1', '2']);
+    const titleSortedDesc = sortVideos(customVideos, VideoSortOption.TitleDesc);
+    expect(titleSortedDesc.map((video) => video.videoId)).toEqual(['3', '1', '2']);
+
+    const dateSortedAsc = sortVideos(customVideos, VideoSortOption.DateAsc);
+    expect(dateSortedAsc.map((video) => video.videoId)).toEqual(['2', '1', '3']);
+
+    const dateSortedDesc = sortVideos(customVideos, VideoSortOption.DateDesc);
+    expect(dateSortedDesc.map((video) => video.videoId)).toEqual(['3', '1', '2']);
   });
 
   it('returns null for an empty video list', () => {
