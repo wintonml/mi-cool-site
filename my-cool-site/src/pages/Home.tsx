@@ -9,6 +9,16 @@ import { PAGE_PATHS } from './../common/constants/pages';
 
 const Home: React.FC<HomeProps> = ({ post, video }) => {
   const contentSliceLength = 160;
+  const technicalSkills = [
+    '.NET Development',
+    'SQL',
+    'JavaScript',
+    'React',
+    'TypeScript',
+    'Git',
+    'Python',
+  ];
+
   let content = post?.content.slice(0, contentSliceLength).trim();
   if (content && post && contentSliceLength < post.content.length && !content.endsWith('.')) {
     content = content.concat('...');
@@ -102,6 +112,19 @@ const Home: React.FC<HomeProps> = ({ post, video }) => {
               Browse videos
             </Link>
           </article>
+        </div>
+      </section>
+
+      <section className={Styles.section}>
+        <div className={Styles.sectionHeader}>
+          <h2>Technical Skills</h2>
+        </div>
+        <div className={Styles.skillsGrid}>
+          {technicalSkills.map((skill) => (
+            <div key={skill} className={Styles.skillChip}>
+              {skill}
+            </div>
+          ))}
         </div>
       </section>
     </div>
