@@ -123,6 +123,25 @@
   padding-bottom: 4rem;
 }
 
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.skillChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  background-color: #f7fbff;
+  border: 1px solid #dce8f7;
+  color: #0f4bbd;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
 .sectionHeader {
   display: flex;
   justify-content: space-between;
