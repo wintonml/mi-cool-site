@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import Styles from './Home.module.css';
+import Styles from './styles/Home.module.css';
 import YouTubeVideo from '../components/YouTubeVideo/YouTubeVideo';
 import { YouTubeEmbedProps } from '../components/YouTubeEmbed';
 import { HomeProps } from './interfaces/Home.types';

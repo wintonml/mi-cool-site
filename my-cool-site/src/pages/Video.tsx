@@ -4,7 +4,7 @@ import YouTubeEmbed from '../components/YouTubeEmbed/YouTubeEmbed';
 import { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
 import { sortVideos, VideoSortOption } from '../utils/videoUtils';
 import { VideoProps } from './interfaces/Video.types';
-import styles from './Video.module.css';
+import styles from './styles/Video.module.css';
 
 const Video: React.FC<VideoProps> = ({ videos }) => {
   const [sortOption, setSortOption] = useState<VideoSortOption>(VideoSortOption.DateDesc);
