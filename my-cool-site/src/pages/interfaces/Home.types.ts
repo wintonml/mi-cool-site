@@ -1,7 +1,7 @@
 import { YouTubeEmbedProps } from '../../components/YouTubeEmbed';
-import { BlogPost as BlogPostType } from '../../utils/markdownUtils';
+import { BlogPostProps } from '../../components/BlogPost/BlogPost.types';
 
 export interface HomeProps {
-  post?: BlogPostType | null;
+  post?: BlogPostProps | null;
   video?: YouTubeEmbedProps | null;
 }

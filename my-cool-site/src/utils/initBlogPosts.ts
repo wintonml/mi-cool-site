@@ -1,5 +1,6 @@
 // This file initializes the blog posts in the browser
-import { initializeBlogPosts, BlogPost } from './markdownUtils';
+import { initializeBlogPosts } from './markdownUtils';
+import { BlogPostProps } from '../components/BlogPost/BlogPost.types';
 
 declare global {
   interface Window {
@@ -24,4 +25,4 @@ export function initBlogPosts() {
 // Initialize immediately when this module is imported
 initBlogPosts();
 
-export type { BlogPost };
+export type { BlogPostProps };

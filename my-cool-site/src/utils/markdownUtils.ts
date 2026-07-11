@@ -1,28 +1,16 @@
 import matter from 'gray-matter';
-
-export interface BlogPostMetadata {
-  title: string;
-  date: string;
-  author: string;
-  excerpt?: string;
-  tags?: string[];
-}
-
-export interface BlogPost extends BlogPostMetadata {
-  slug: string;
-  content: string;
-}
+import { BlogPostProps } from '../components/BlogPost/BlogPost.types';
 
 // These will be populated by initBlogPosts
 export let BLOG_POSTS: Record<string, string> = {};
-export let getAllPosts: () => BlogPost[] = () => [];
-export let getPostBySlug: (slug: string) => BlogPost | null = () => null;
+export let getAllPosts: () => BlogPostProps[] = () => [];
+export let getPostBySlug: (slug: string) => BlogPostProps | null = () => null;
 
 // This function should be called during app initialization
 export function initializeBlogPosts(blogPosts: Record<string, string>) {
   BLOG_POSTS = blogPosts;
 
-  getPostBySlug = (slug: string): BlogPost | null => {
+  getPostBySlug = (slug: string): BlogPostProps | null => {
     const fileName = `${slug}.md`;
     const fileContents = BLOG_POSTS[fileName];
 
@@ -41,14 +29,14 @@ export function initializeBlogPosts(blogPosts: Record<string, string>) {
     };
   };
 
-  getAllPosts = (): BlogPost[] => {
+  getAllPosts = (): BlogPostProps[] => {
     const slugs = Object.keys(BLOG_POSTS)
       .filter((fileName) => fileName.endsWith('.md') || fileName.endsWith('.mdx'))
       .map((fileName) => fileName.replace(/\.mdx?$/, ''));
 
     return slugs
       .map((slug) => getPostBySlug(slug))
-      .filter((post): post is BlogPost => post !== null)
+      .filter((post): post is BlogPostProps => post !== null)
       .sort((a, b) => {
         const dateA = new Date(a.date.split('-').reverse().join('-'));
         const dateB = new Date(b.date.split('-').reverse().join('-'));

@@ -1,10 +1,6 @@
-import {
-  getLatestVideo,
-  parseVideoPublishedDate,
-  sortVideos,
-  VideoSortOption,
-} from '../utils/videoUtils';
+import { getLatestVideo, parseVideoPublishedDate, sortVideos } from '../utils/videoUtils';
 import type { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
+import { VideoSortOption } from '../common/constants/videoSortOption';
 
 describe('videoUtils', () => {
   it('parses DD-MM-YYYY into a Date', () => {
