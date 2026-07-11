@@ -112,7 +112,7 @@ function displayFeatureSection(
         <article className={Styles.featuredCard}>
           <span className={Styles.sectionBadge}>Latest post</span>
           <h3>{postTitle}</h3>
-          {postContent}
+          <div className={Styles.markdownContent}>{postContent}</div>
           {post && (
             <Link to={PAGE_PATHS.BLOG} className={Styles.cardLink}>
               Read the latest post
