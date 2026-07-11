@@ -10,7 +10,7 @@ import { getLatestVideo } from './utils/videoUtils';
 import videos from './content/videos/videos.json';
 import Blog from './pages/Blog';
 import Home from './pages/Home';
-import { PAGE_NAMES, PAGE_PATHS } from './common/constants/pages';
+import { PAGE_NAMES, PAGE_PATHS } from './common/constants/page';
 import { getAllPosts } from './utils/markdownUtils';
 
 function App() {

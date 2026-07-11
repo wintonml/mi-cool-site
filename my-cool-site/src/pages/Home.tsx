@@ -5,9 +5,9 @@ import Styles from './styles/Home.module.css';
 import YouTubeVideo from '../components/YouTubeVideo/YouTubeVideo';
 import { YouTubeEmbedProps } from '../components/YouTubeEmbed';
 import { HomeProps } from './interfaces/Home.types';
-import { BlogPost } from '../utils/markdownUtils';
+import { BlogPostProps } from '../components/BlogPost/BlogPost.types';
 import { Link } from 'react-router-dom';
-import { PAGE_PATHS } from './../common/constants/pages';
+import { PAGE_PATHS } from '../common/constants/page';
 
 const Home: React.FC<HomeProps> = ({ post, video }) => {
   return (
@@ -19,7 +19,7 @@ const Home: React.FC<HomeProps> = ({ post, video }) => {
   );
 };
 
-function displayHeroSection(post: BlogPost | null = null) {
+function displayHeroSection(post: BlogPostProps | null = null) {
   const postContent = post ? post.title : 'New content coming soon.';
 
   return (
@@ -66,7 +66,7 @@ function displayHeroSection(post: BlogPost | null = null) {
 }
 
 function displayFeatureSection(
-  post: BlogPost | null = null,
+  post: BlogPostProps | null = null,
   video: YouTubeEmbedProps | null = null
 ) {
   const contentSliceLength = 160;

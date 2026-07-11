@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoSortOption } from '../../utils/videoUtils';
+import { VideoSortOption } from '../../common/constants/videoSortOption';
 import styles from './VideoSortSelector.module.css';
 
 type SortSelectorProps = {

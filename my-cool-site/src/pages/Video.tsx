@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react';
+import { VideoSortOption } from '../common/constants/videoSortOption';
 import VideoSortSelector from '../components/VideoSortSelector/VideoSortSelector';
 import YouTubeEmbed from '../components/YouTubeEmbed/YouTubeEmbed';
 import { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
-import { sortVideos, VideoSortOption } from '../utils/videoUtils';
+import { sortVideos } from '../utils/videoUtils';
 import { VideoProps } from './interfaces/Video.types';
 import styles from './styles/Video.module.css';
 

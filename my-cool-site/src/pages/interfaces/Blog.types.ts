@@ -1,5 +1,5 @@
-import { BlogPost as BlogPostType } from '../../utils/markdownUtils';
+import { BlogPostProps } from '../../components/BlogPost/BlogPost.types';
 
 export interface BlogProps {
-  posts: BlogPostType[];
+  posts: BlogPostProps[];
 }

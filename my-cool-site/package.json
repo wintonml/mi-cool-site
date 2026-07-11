@@ -20,9 +20,10 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "prebuild": "ts-node scripts/generate-blog-json.ts && ts-node scripts/validate-blog-dates.ts",
+    "prebuild": "ts-node scripts/generate-blog-json.ts && ts-node scripts/validate-blog-dates.ts && ts-node scripts/validate-blog-tags.ts",
     "build": "react-app-rewired build && cp public/blog-posts.js build/",
     "validate-dates": "ts-node scripts/validate-blog-dates.ts",
+    "validate-tags": "ts-node scripts/validate-blog-tags.ts",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

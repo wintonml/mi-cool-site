@@ -1,11 +1,5 @@
 import type { YouTubeEmbedProps } from '../components/YouTubeEmbed/YouTubeEmbed.types';
-
-export enum VideoSortOption {
-  TitleAsc = 'title-asc',
-  TitleDesc = 'title-desc',
-  DateAsc = 'date-asc',
-  DateDesc = 'date-desc',
-}
+import { VideoSortOption } from '../common/constants/videoSortOption';
 
 /**
  * Parses a published date string in DD-MM-YYYY format.
