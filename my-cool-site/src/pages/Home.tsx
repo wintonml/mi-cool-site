@@ -8,6 +8,7 @@ import { HomeProps } from './interfaces/Home.types';
 import { BlogPostProps } from '../components/BlogPost/BlogPost.types';
 import { Link } from 'react-router-dom';
 import { PAGE_PATHS } from '../common/constants/page';
+import { TECHNICAL_SKILLS } from '../common/constants/technicalSkills';
 
 const Home: React.FC<HomeProps> = ({ post, video }) => {
   return (
@@ -15,6 +16,7 @@ const Home: React.FC<HomeProps> = ({ post, video }) => {
       {displayHeroSection(post)}
       {displayFeatureSection(post, video)}
       {displayTechnicalSkillsSection()}
+      {displayEducationSection()}
     </div>
   );
 };
@@ -132,27 +134,33 @@ function displayFeatureSection(
 }
 
 function displayTechnicalSkillsSection() {
-  const technicalSkills = [
-    '.NET Development',
-    'SQL',
-    'JavaScript',
-    'React',
-    'TypeScript',
-    'Git',
-    'Python',
-  ];
-
   return (
     <section className={Styles.section}>
       <div className={Styles.sectionHeader}>
         <h2>Technical Skills</h2>
       </div>
       <div className={Styles.skillsGrid}>
-        {technicalSkills.map((skill) => (
+        {TECHNICAL_SKILLS.map((skill) => (
           <div key={skill} className={Styles.skillChip}>
             {skill}
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function displayEducationSection() {
+  return (
+    <section className={Styles.section}>
+      <div className={Styles.sectionHeader}>
+        <h2>Education</h2>
+      </div>
+      <div className={Styles.featuredGrid}>
+        <article className={Styles.featuredCard}>
+          <span className={Styles.statLabel}>Victoria University of Wellington</span>
+          <p>1st Class Honours in Electronics and Computer Systems Engineering</p>
+        </article>
       </div>
     </section>
   );
