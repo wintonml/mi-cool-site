@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Styles from './styles/Home.module.css';
@@ -8,13 +8,18 @@ import { HomeProps } from './interfaces/Home.types';
 import { BlogPostProps } from '../components/BlogPost/BlogPost.types';
 import { Link } from 'react-router-dom';
 import { PAGE_PATHS } from '../common/constants/page';
+import { TECHNICAL_SKILLS } from '../common/constants/technicalSkills';
+import { EDUCATION } from '../common/constants/education';
 
 const Home: React.FC<HomeProps> = ({ post, video }) => {
+  const [activeEducationIndex, setActiveEducationIndex] = useState(0);
+
   return (
     <div className={Styles.homePage}>
       {displayHeroSection(post)}
       {displayFeatureSection(post, video)}
       {displayTechnicalSkillsSection()}
+      {displayEducationSection(activeEducationIndex, setActiveEducationIndex)}
     </div>
   );
 };
@@ -132,27 +137,81 @@ function displayFeatureSection(
 }
 
 function displayTechnicalSkillsSection() {
-  const technicalSkills = [
-    '.NET Development',
-    'SQL',
-    'JavaScript',
-    'React',
-    'TypeScript',
-    'Git',
-    'Python',
-  ];
-
   return (
     <section className={Styles.section}>
       <div className={Styles.sectionHeader}>
         <h2>Technical Skills</h2>
       </div>
       <div className={Styles.skillsGrid}>
-        {technicalSkills.map((skill) => (
+        {TECHNICAL_SKILLS.map((skill) => (
           <div key={skill} className={Styles.skillChip}>
             {skill}
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function displayEducationSection(
+  activeEducationIndex: number,
+  setActiveEducationIndex: React.Dispatch<React.SetStateAction<number>>
+) {
+  const currentEducation = EDUCATION[activeEducationIndex];
+
+  const showPreviousEducation = () => {
+    setActiveEducationIndex((previousIndex) =>
+      previousIndex === 0 ? EDUCATION.length - 1 : previousIndex - 1
+    );
+  };
+
+  const showNextEducation = () => {
+    setActiveEducationIndex((previousIndex) =>
+      previousIndex === EDUCATION.length - 1 ? 0 : previousIndex + 1
+    );
+  };
+
+  return (
+    <section className={Styles.section}>
+      <div className={Styles.sectionHeader}>
+        <h2>Education</h2>
+      </div>
+      <div className={Styles.featuredGrid}>
+        <article className={Styles.featuredCard}>
+          <span className={Styles.sectionBadge}>Academic background</span>
+          <div className={Styles.carouselContent}>
+            <div className={Styles.carouselHeader}>
+              <button
+                type="button"
+                className={Styles.carouselButton}
+                onClick={showPreviousEducation}
+                aria-label="Show previous education"
+              >
+                ←
+              </button>
+              <div className={Styles.carouselText}>
+                <strong>{currentEducation.school}</strong>
+                <span>{currentEducation.detail}</span>
+              </div>
+              <button
+                type="button"
+                className={Styles.carouselButton}
+                onClick={showNextEducation}
+                aria-label="Show next education"
+              >
+                →
+              </button>
+            </div>
+            <div className={Styles.carouselDots}>
+              {EDUCATION.map((item, index) => (
+                <span
+                  key={item.school}
+                  className={`${Styles.carouselDot} ${index === activeEducationIndex ? Styles.activeCarouselDot : ''}`}
+                />
+              ))}
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   );
