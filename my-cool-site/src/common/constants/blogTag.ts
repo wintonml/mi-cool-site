@@ -4,6 +4,7 @@ export const BLOG_TAGS = {
   music: 'music',
   run: 'run',
   sport: 'sport',
+  tech: 'tech',
   welcome: 'welcome',
 } as const;
 
